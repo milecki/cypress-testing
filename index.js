@@ -4,9 +4,9 @@ const app = new express();
 
 const PORT = 3000;
 
-app.use((req, res, next) => {
-  setTimeout(next, 3000);
-});
+// app.use((req, res, next) => {
+//   setTimeout(next, 3000);
+// });
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
