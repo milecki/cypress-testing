@@ -34,4 +34,13 @@ describe('UI TESTS', () => {
     );
     cy.get('[data-cy=logout-btn]').should('not.have.class', 'asdf');
   });
+
+  it('should contain correct input field values', () => {
+    cy.visit('http://localhost:3000');
+    cy.get('[data-cy=email]').type('smith@hotmail.com');
+    cy.get('[data-cy=email]').should('have.value', 'smith@hotmail.com');
+    cy.get('[data-cy=password]').type('123456');
+    cy.get('[data-cy=password]').should('have.value', '123456');
+    cy.get('[data-cy=password]').should('not.have.value', '!@#$%^');
+  });
 });
