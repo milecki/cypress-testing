@@ -21,4 +21,17 @@ describe('UI TESTS', () => {
     cy.get('[data-cy="login-text"]').should('have.length', 1);
     cy.get('[data-cy="homepage"]').should('have.length', 0);
   });
+
+  it('should login with valid username and password', () => {
+    cy.visit('http://localhost:3000');
+    cy.get('[data-cy=email]').type('john@example.com');
+    cy.get('[data-cy=password]').type('123456');
+    cy.get('[data-cy=submit-button]').click();
+    cy.get('[data-cy=logout-btn]').should('be.visible');
+    cy.get('[data-cy=logout-btn]').should(
+      'have.class',
+      'btn-outline-secondary'
+    );
+    cy.get('[data-cy=logout-btn]').should('not.have.class', 'asdf');
+  });
 });
