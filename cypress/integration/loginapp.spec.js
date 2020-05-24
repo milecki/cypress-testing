@@ -59,8 +59,12 @@ describe('UI TESTS', () => {
   });
 
   it('should have existing elements', () => {
-    cy.wait(3000);
+    // cy.wait(3000);
     cy.get('[data-cy=login-text]').should('exist');
     cy.get('[data-cy=logout-text]').should('not.exist');
   });
+
+  // it('should fail and create video and screenshot', () => {
+  //   cy.get('[data-cy=zzz]').should('exist');
+  // });
 });
