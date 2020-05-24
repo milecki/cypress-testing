@@ -8,4 +8,11 @@ describe('UI TESTS', () => {
     cy.get('.action-email').clear();
     cy.get('.action-email').should('have.value', '');
   });
+
+  it('should double click the element', () => {
+    cy.get('.action-div')
+      .dblclick()
+      .should('not.be.visible')
+      .should('have.value', '');
+  });
 });
